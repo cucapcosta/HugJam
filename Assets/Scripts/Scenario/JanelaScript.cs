@@ -6,9 +6,14 @@ public class JanelaScript : MonoBehaviour
 {
     public Animator animator;
     public GameObject janelaQuebrando;
+    Animator shatterAnimator;
     void Start()
     {
         animator = GetComponent<Animator>();
+    }
+    void Update()
+    {
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,6 +30,8 @@ public class JanelaScript : MonoBehaviour
                 animator.CrossFade("shattered2", 0);
             }
             GameObject shatterInstance = Instantiate(janelaQuebrando, transform.position, Quaternion.identity);
+            shatterAnimator = shatterInstance.GetComponent<Animator>();
+            shatterAnimator.CrossFade("shatter_Clip", 0);
             GetComponent<BoxCollider2D>().enabled = false;
             Destroy(collision.gameObject);
         }

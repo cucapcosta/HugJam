@@ -16,6 +16,7 @@ public class KaosBehaviour : MonoBehaviour
     public Animator animator;
     public bool isAttacking;
     public bool isKicking;
+    public bool canShoot = true;
     public GameObject marble;
     private Dictionary<GameObject, bool> kickedChairs = new Dictionary<GameObject, bool>();
 
@@ -51,7 +52,7 @@ public class KaosBehaviour : MonoBehaviour
         {
             Chutar();
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && canShoot)
         {
             Atirar();
         }
@@ -143,25 +144,20 @@ public class KaosBehaviour : MonoBehaviour
         {
             GameObject chair = collision.gameObject;
             Animator collisionAnimator = chair.GetComponent<Animator>();
-            StartCoroutine(WairForChairKick(chair, collisionAnimator));
+            StartCoroutine(WairForKick(chair, collisionAnimator, "carteiradead"));
             // Check if this specific chair has been kicked before
 
         }
     }
-    IEnumerator WairForChairKick(GameObject chair, Animator collisionAnimator)
+    IEnumerator WairForKick(GameObject chair, Animator collisionAnimator, string stateName)
     {
         yield return new WaitForSeconds(0.1f);
         if (!kickedChairs.ContainsKey(chair) || !kickedChairs[chair])
         {
-            print("Acertou cadeira");
-            collisionAnimator.CrossFade("carteirafall", 0);
             kickedChairs[chair] = true; // Mark this chair as kicked
-        }
-        if (collisionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && kickedChairs[chair])
-        {
-            print("Deixar cadeira derrubada");
-            collisionAnimator.CrossFade("carteiradead", 0);
+            collisionAnimator.CrossFade(stateName, 0);
             chair.GetComponent<BoxCollider2D>().enabled = false;
         }
+       
     }
 }
