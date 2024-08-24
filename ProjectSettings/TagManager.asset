@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BackGround
+  - CharacterBehind
+  - CharacterFront
+  - Chair
+  - Tiro
+  - Carteira
   layers:
   - Default
   - TransparentFX
@@ -11,9 +17,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Paredes
+  - Tiro
+  - Atiraveis
   - 
   - 
   - 

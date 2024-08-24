@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Hug Jam Escola.sln"
+    "dotnet.defaultSolution": "HugJam.sln"
 }
