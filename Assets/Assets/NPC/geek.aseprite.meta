@@ -123,7 +123,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: geek_Frame_0
     originalName: 
-    pivot: {x: 0.48275864, y: 0}
+    pivot: {x: 0.70689654, y: -0.12195122}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -143,7 +143,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: geek_Frame_1
     originalName: 
-    pivot: {x: 0.48275864, y: 0}
+    pivot: {x: 0.70689654, y: -0.125}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -161,6 +161,66 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 53}
+  - name: geek_Frame_2
+    originalName: 
+    pivot: {x: 0.5595238, y: -0.11111111}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 41
+      y: 4
+      width: 42
+      height: 27
+    spriteID: e4a686be60619b24d840c378284217c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 41, y: 4}
+  - name: geek_Frame_3
+    originalName: 
+    pivot: {x: 0.48809525, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 41
+      y: 39
+      width: 42
+      height: 27
+    spriteID: 891bd094bcfd2824b8e15ef561033874
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 41, y: 39}
+  - name: geek_Frame_4
+    originalName: 
+    pivot: {x: 0.48809525, y: -0.03703704}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 41
+      y: 74
+      width: 42
+      height: 27
+    spriteID: b82552adf11bd61469f32d5732da1d93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 41, y: 74}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -175,7 +235,7 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 3
-        y: 0
+        y: 5
         width: 29
         height: 41
       spriteId: 6fc3e14988a30f64ea798eb833404cff
@@ -184,10 +244,37 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 3
-        y: 0
+        y: 5
         width: 29
         height: 40
       spriteId: aa7fe4895a3698c4e9b15443001a3cd4
+    - name: geek_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 3
+        width: 42
+        height: 27
+      spriteId: e4a686be60619b24d840c378284217c2
+    - name: geek_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 3
+        y: 0
+        width: 42
+        height: 27
+      spriteId: 891bd094bcfd2824b8e15ef561033874
+    - name: geek_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 3
+        y: 1
+        width: 42
+        height: 27
+      spriteId: b82552adf11bd61469f32d5732da1d93
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -206,4 +293,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 34, y: 47}
+  canvasSize: {x: 47, y: 52}

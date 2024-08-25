@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class KaosBehaviour : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class KaosBehaviour : MonoBehaviour
     public float launchSpeed;
     public float arcHeight;
     public float timer = 60;
-    float timespent = 0;
+    public float timespent = 0;
     public UnityEngine.Vector2 direction;
     public Animator animator;
     public bool isAttacking;
@@ -29,6 +30,7 @@ public class KaosBehaviour : MonoBehaviour
     public bool canShoot = true;
     public bool isKickingLocker;
     public bool hasInstantiatedNerdola;
+    public bool hasInstantiatedGeek;
     public GameObject marble;
     public GameObject nerdola;
     public GameObject geek;
@@ -39,6 +41,7 @@ public class KaosBehaviour : MonoBehaviour
     public int score;
     public int lockersKicked;
     public int nerdolaInstantiateTime;
+    public int geekInstantiateTime;
 
 
 
@@ -46,11 +49,19 @@ public class KaosBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        nerdolaInstantiateTime = Random.Range(1, 7);
+        nerdolaInstantiateTime = Random.Range(1, 6);
+        geekInstantiateTime = Random.Range(7, 12);
     }
     void Update()
     {
         timespent += Time.deltaTime;
+        if (timespent >= 200)
+        {
+            PlayerPrefs.SetFloat("score", gameObject.GetComponent<KaosBehaviour>().score);
+            PlayerPrefs.SetInt("time", (int)gameObject.GetComponent<KaosBehaviour>().timespent);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("FIM");
+        }
         direction = new UnityEngine.Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (isAttacking)
         {
@@ -199,6 +210,14 @@ public class KaosBehaviour : MonoBehaviour
                         animNerdola.CrossFade("nerdfall", 0);
                         StartCoroutine(NerdolaLevanta(animNerdola));
                     }
+                    else if (lockersKicked == geekInstantiateTime)
+                    {
+                        GameObject geekInstanciado = Instantiate(geek, new UnityEngine.Vector2(transform.position.x, transform.position.y - 0.1f), UnityEngine.Quaternion.identity);
+                        hasInstantiatedGeek = true;
+                        Animator animGeek = geekInstanciado.GetComponent<Animator>();
+                        animGeek.CrossFade("geekfall", 0);
+                        StartCoroutine(GeekLevanta(animGeek));
+                    }
 
                     break;
 
@@ -210,7 +229,7 @@ public class KaosBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (!kickedChairs.ContainsKey(chair) || !kickedChairs[chair])
         {
-            
+
             kickedChairs[chair] = true; // Mark this chair as kicked
             collisionAnimator.CrossFade(stateName, 0);
             if (stateName != "lockeropen")
@@ -238,6 +257,21 @@ public class KaosBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.65f);
         nerdolaAnim.CrossFade("nerdidle", 0);
     }
+    IEnumerator GeekLevanta(Animator nerdolaAnim)
+    {
+        yield return new WaitForSeconds(0.65f);
+        nerdolaAnim.CrossFade("geekidle", 0);
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Prof")
+        {
+            PlayerPrefs.SetFloat("score", gameObject.GetComponent<KaosBehaviour>().score);
+            PlayerPrefs.SetInt("time", (int)gameObject.GetComponent<KaosBehaviour>().timespent);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("FIM");
 
+        }
+    }
 
 }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class NPCBase : MonoBehaviour
 {
@@ -42,12 +44,30 @@ public class NPCBase : MonoBehaviour
                     e.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        playerItemList.Add(rewardName);
-                        interactionPlace = new UnityEngine.Vector2(player.transform.position.x, player.transform.position.y + .5f);
-                        GameObject rewardPopup = Instantiate(reward, interactionPlace, Quaternion.identity);
-                        StartCoroutine(DestroyReward(rewardPopup));
-                        hasDesire = false;
-                        
+                        if (rewardName == "SAIR")
+                        {
+                            PlayerPrefs.SetFloat("score", player.GetComponent<KaosBehaviour>().score);
+                            PlayerPrefs.SetInt("time", (int)player.GetComponent<KaosBehaviour>().timespent);
+                            PlayerPrefs.Save();
+                            SceneManager.LoadScene("FIM");
+                        }else if(rewardName =="walkietalkie"){
+                            player.GetComponent<KaosBehaviour>().score += 15;
+                            playerItemList.Add(rewardName);
+                            interactionPlace = new UnityEngine.Vector2(player.transform.position.x, player.transform.position.y + .5f);
+                            GameObject rewardPopup = Instantiate(reward, interactionPlace, Quaternion.identity);
+                            StartCoroutine(DestroyReward(rewardPopup));
+                            hasDesire = false;
+                        }
+                        else
+                        {
+                            playerItemList.Add(rewardName);
+                            interactionPlace = new UnityEngine.Vector2(player.transform.position.x, player.transform.position.y + .5f);
+                            GameObject rewardPopup = Instantiate(reward, interactionPlace, Quaternion.identity);
+                            StartCoroutine(DestroyReward(rewardPopup));
+                            hasDesire = false;
+                        }
+
+
                     }
 
                 }

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class TeacherController : MonoBehaviour
 {
+    public Animator animator;
     public float speed;
     public GameObject player;
     public string currentRoom;
@@ -19,9 +20,15 @@ public class TeacherController : MonoBehaviour
     {
         player = GameObject.Find("Kaos");
         tpPlaces = tpPlaceList.ToDictionary(x => x.room, x => x.position);
+        animator = GetComponent<Animator>();
     }
 
     void Update(){
+        if(player.transform.position.x > transform.position.x){
+         GetComponent<SpriteRenderer>().flipX = false;   
+        }else{
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
         float teleportTime = 0.2f * (39/player.GetComponent<KaosBehaviour>().score);
         
         if(teleportTime < 3f){
@@ -30,6 +37,7 @@ public class TeacherController : MonoBehaviour
         print(teleportTime);
         if(player.GetComponent<KaosBehaviour>().currentRoom == currentRoom){
             isChase = true;  
+            animator.CrossFade("teacherwalk", 0);
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         } else{
             if(!isTP && isChase){
@@ -44,6 +52,7 @@ public class TeacherController : MonoBehaviour
         
         if(player.GetComponent<KaosBehaviour>().currentRoom != "mainHall"){
             transform.position = tpPlaces[player.GetComponent<KaosBehaviour>().currentRoom];
+            currentRoom = player.GetComponent<KaosBehaviour>().currentRoom;
         }else{
             switch (currentRoom){
                 case "room1":
@@ -56,6 +65,10 @@ public class TeacherController : MonoBehaviour
                     break;
                 case "room3":
                     transform.position = tpPlaces["mainHall3"];
+                    currentRoom = "mainHall";
+                    break;
+                case "roomprof":
+                    transform.position = tpPlaces["mainHallprof"];
                     currentRoom = "mainHall";
                     break;
             }

@@ -5,15 +5,17 @@ using UnityEngine;
 public class MainHallCamera : MonoBehaviour
 {
     public GameObject player;
+    public float playerLimitY;
+    public float limitY;
     void Update()
     {
-        if (player.transform.position.y > -5.089999)
+        if (player.transform.position.y > playerLimitY)
         {
             gameObject.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
         }
         else
         {
-            gameObject.transform.position = new Vector3(player.transform.position.x, -5.089999f, -10);
+            gameObject.transform.position = new Vector3(player.transform.position.x, limitY, -10);
         }
 
     }

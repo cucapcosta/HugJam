@@ -12,6 +12,7 @@ TagManager:
   - Carteira
   - MesaProf
   - Armario
+  - Prof
   layers:
   - Default
   - TransparentFX
