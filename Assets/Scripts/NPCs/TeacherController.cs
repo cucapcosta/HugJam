@@ -30,7 +30,9 @@ public class TeacherController : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = true;
         }
         float teleportTime = 0.2f * (39/player.GetComponent<KaosBehaviour>().score);
-        
+        if(player.GetComponent<KaosBehaviour>().score >=15){
+            isChase = true;
+        }
         if(teleportTime < 3f){
             teleportTime = 3f;
         }
@@ -68,7 +70,7 @@ public class TeacherController : MonoBehaviour
                     currentRoom = "mainHall";
                     break;
                 case "roomprof":
-                    transform.position = tpPlaces["mainHallprof"];
+                    transform.position = tpPlaces["mainHall4"];
                     currentRoom = "mainHall";
                     break;
             }

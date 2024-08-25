@@ -18,11 +18,11 @@ public class Layering : MonoBehaviour
     {
         if (player.transform.position.y > gameObject.transform.position.y)
         {
-            spriteRenderer.sortingOrder = 3;
+            spriteRenderer.sortingOrder = 4;
         }
         else if (player.transform.position.y < gameObject.transform.position.y)
         {
-            spriteRenderer.sortingOrder = 1;
+            spriteRenderer.sortingOrder = 2;
         }
         
     }

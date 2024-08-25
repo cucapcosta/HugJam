@@ -46,6 +46,7 @@ public class NPCBase : MonoBehaviour
                     {
                         if (rewardName == "SAIR")
                         {
+                            audioSource.PlayOneShot(goodSound);
                             PlayerPrefs.SetFloat("score", player.GetComponent<KaosBehaviour>().score);
                             PlayerPrefs.SetInt("time", (int)player.GetComponent<KaosBehaviour>().timespent);
                             PlayerPrefs.Save();
@@ -57,6 +58,7 @@ public class NPCBase : MonoBehaviour
                             GameObject rewardPopup = Instantiate(reward, interactionPlace, Quaternion.identity);
                             StartCoroutine(DestroyReward(rewardPopup));
                             hasDesire = false;
+                            audioSource.PlayOneShot(goodSound);
                         }
                         else
                         {
@@ -65,6 +67,7 @@ public class NPCBase : MonoBehaviour
                             GameObject rewardPopup = Instantiate(reward, interactionPlace, Quaternion.identity);
                             StartCoroutine(DestroyReward(rewardPopup));
                             hasDesire = false;
+                            audioSource.PlayOneShot(goodSound);
                         }
 
 
@@ -82,6 +85,7 @@ public class NPCBase : MonoBehaviour
                     GameObject rewardPopup = Instantiate(reward, interactionPlace, Quaternion.identity);
                     hasDesire = false;
                     StartCoroutine(DestroyReward(rewardPopup));
+                    audioSource.PlayOneShot(goodSound);
                 }
 
             }

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using JetBrains.Annotations;
-using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -50,7 +49,7 @@ public class KaosBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         nerdolaInstantiateTime = Random.Range(1, 6);
-        geekInstantiateTime = Random.Range(7, 12);
+        geekInstantiateTime = Random.Range(7, 11);
     }
     void Update()
     {
@@ -210,7 +209,7 @@ public class KaosBehaviour : MonoBehaviour
                         animNerdola.CrossFade("nerdfall", 0);
                         StartCoroutine(NerdolaLevanta(animNerdola));
                     }
-                    else if (lockersKicked == geekInstantiateTime)
+                    else if (lockersKicked == geekInstantiateTime && !hasInstantiatedGeek)
                     {
                         GameObject geekInstanciado = Instantiate(geek, new UnityEngine.Vector2(transform.position.x, transform.position.y - 0.1f), UnityEngine.Quaternion.identity);
                         hasInstantiatedGeek = true;

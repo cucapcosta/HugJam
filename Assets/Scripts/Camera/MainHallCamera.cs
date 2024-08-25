@@ -7,6 +7,9 @@ public class MainHallCamera : MonoBehaviour
     public GameObject player;
     public float playerLimitY;
     public float limitY;
+    void Start(){  
+        player = GameObject.Find("Kaos");
+    }
     void Update()
     {
         if (player.transform.position.y > playerLimitY)
