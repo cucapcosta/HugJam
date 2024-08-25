@@ -123,7 +123,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: nerd_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.73214287, y: -0.11904763}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -143,13 +143,13 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: nerd_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.73214287, y: -0.12195122}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 54
+      x: 91
+      y: 74
       width: 28
       height: 41
     spriteID: 53190083698e76240b291fe84d1dbfa5
@@ -160,7 +160,67 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 54}
+    uvTransform: {x: 91, y: 74}
+  - name: nerd_Frame_2
+    originalName: 
+    pivot: {x: 0.54651165, y: -0.11111111}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 4
+      width: 43
+      height: 27
+    spriteID: cd78e6841b3e3874db2bddca76dd41c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 4}
+  - name: nerd_Frame_3
+    originalName: 
+    pivot: {x: 0.4767442, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 39
+      width: 43
+      height: 27
+    spriteID: 2aa25fa9060ceb64081d6e7fca7193d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 39}
+  - name: nerd_Frame_4
+    originalName: 
+    pivot: {x: 0.4767442, y: -0.03703704}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 74
+      width: 43
+      height: 27
+    spriteID: a915ada77bdabda478677b6ac5bd640e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 74}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -175,7 +235,7 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 3
-        y: 0
+        y: 5
         width: 28
         height: 42
       spriteId: be3932c79501036478a146e98ad77ed1
@@ -184,10 +244,37 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 3
-        y: 0
+        y: 5
         width: 28
         height: 41
       spriteId: 53190083698e76240b291fe84d1dbfa5
+    - name: nerd_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 3
+        width: 43
+        height: 27
+      spriteId: cd78e6841b3e3874db2bddca76dd41c5
+    - name: nerd_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 3
+        y: 0
+        width: 43
+        height: 27
+      spriteId: 2aa25fa9060ceb64081d6e7fca7193d3
+    - name: nerd_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 3
+        y: 1
+        width: 43
+        height: 27
+      spriteId: a915ada77bdabda478677b6ac5bd640e
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -206,4 +293,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 34, y: 47}
+  canvasSize: {x: 47, y: 52}

@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Layering : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     SpriteRenderer spriteRenderer;
     void Start()
     {
+        player = GameObject.Find("Kaos");
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

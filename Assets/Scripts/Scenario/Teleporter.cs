@@ -9,6 +9,7 @@ public class Teleporter : MonoBehaviour
     public GameObject nextCamera;
     public Image fadeImage; // Reference to a UI Image that covers the entire screen
     public float fadeDuration = 1f;
+    public string nextRoom;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -46,5 +47,6 @@ public class Teleporter : MonoBehaviour
             yield return null;
         }
         fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
+        player.GetComponent<KaosBehaviour>().currentRoom = nextRoom;
     }
 }

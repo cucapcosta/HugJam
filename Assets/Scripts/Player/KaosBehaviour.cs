@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using JetBrains.Annotations;
+using Microsoft.Unity.VisualStudio.Editor;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.Rendering;
 
 public class KaosBehaviour : MonoBehaviour
 {
@@ -12,22 +15,37 @@ public class KaosBehaviour : MonoBehaviour
     public float speedKickMultiplier;
     public float launchSpeed;
     public float arcHeight;
+    public float timer = 60;
+    float timespent = 0;
     public UnityEngine.Vector2 direction;
     public Animator animator;
     public bool isAttacking;
     public bool isKicking;
     public bool canShoot = true;
+    public bool isKickingLocker;
+    public bool hasInstantiatedNerdola;
     public GameObject marble;
+    public GameObject nerdola;
+    public GameObject geek;
+    public GameObject ponteiroImagem;
     private Dictionary<GameObject, bool> kickedChairs = new Dictionary<GameObject, bool>();
+    public List<string> itemList;
+    public string currentRoom;
+    public int score;
+    public int lockersKicked;
+    public int nerdolaInstantiateTime;
+
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        nerdolaInstantiateTime = Random.Range(1, 7);
     }
     void Update()
     {
+        timespent += Time.deltaTime;
         direction = new UnityEngine.Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (isAttacking)
         {
@@ -52,10 +70,11 @@ public class KaosBehaviour : MonoBehaviour
         {
             Chutar();
         }
-        if (Input.GetButtonDown("Fire1") && canShoot)
+        if (Input.GetButtonDown("Fire1") && itemList.Contains("estilingue"))
         {
             Atirar();
         }
+        ponteiroImagem.transform.rotation = UnityEngine.Quaternion.Euler(0, 0, -360 * (timespent / timer));
     }
     void Animacoes(UnityEngine.Vector2 direction)
     {
@@ -131,22 +150,53 @@ public class KaosBehaviour : MonoBehaviour
         Rigidbody2D marbleInstance = Instantiate(marble, startPosition, UnityEngine.Quaternion.identity).GetComponent<Rigidbody2D>();
         UnityEngine.Vector2 launchVelocity = CalculateLaunchVelocity(startPosition, targetPosition, arcHeight);
         marbleInstance.velocity = launchVelocity;
-        //DestroyMarble(marbleInstance.gameObject);
     }
-    //IEnumerator DestroyMarble(GameObject marble, float time){
-      //  yield return new WaitForSeconds(time);
-        //Destroy(marble);
-    //}
-    
+
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Carteira" && isKicking)
+        if (isKicking)
         {
-            GameObject chair = collision.gameObject;
-            Animator collisionAnimator = chair.GetComponent<Animator>();
-            StartCoroutine(WairForKick(chair, collisionAnimator, "carteiradead"));
-            // Check if this specific chair has been kicked before
+            switch (collision.gameObject.tag)
+            {
+                case "Chair":
+                    GameObject chair = collision.gameObject;
+                    Animator collisionAnimator = chair.GetComponent<Animator>();
+                    StartCoroutine(WairForKick(chair, collisionAnimator, "chairdead"));
 
+                    break;
+                case "Carteira":
+                    GameObject carteira = collision.gameObject;
+                    Animator carteiraAnimator = carteira.GetComponent<Animator>();
+                    StartCoroutine(WairForKick(carteira, carteiraAnimator, "carteiradead"));
+
+                    break;
+                case "MesaProf":
+                    GameObject mesaProf = collision.gameObject;
+                    Animator mesaProfAnimator = mesaProf.GetComponent<Animator>();
+                    StartCoroutine(WairForKick(mesaProf, mesaProfAnimator, "tabledead"));
+
+                    break;
+                case "Armario":
+                    if (!isKickingLocker)
+                    {
+                        lockersKicked++;
+                        isKickingLocker = true;
+                    }
+                    GameObject armario = collision.gameObject;
+                    Animator armarioAnimator = armario.GetComponent<Animator>();
+                    StartCoroutine(WairForKick(armario, armarioAnimator, "lockeropen"));
+                    if (lockersKicked == nerdolaInstantiateTime && !hasInstantiatedNerdola)
+                    {
+                        GameObject nerdolaInstanciado = Instantiate(nerdola, new UnityEngine.Vector2(transform.position.x, transform.position.y - 0.1f), UnityEngine.Quaternion.identity);
+                        hasInstantiatedNerdola = true;
+                        Animator animNerdola = nerdolaInstanciado.GetComponent<Animator>();
+                        animNerdola.CrossFade("nerdfall", 0);
+                        StartCoroutine(NerdolaLevanta(animNerdola));
+                    }
+
+                    break;
+
+            }
         }
     }
     IEnumerator WairForKick(GameObject chair, Animator collisionAnimator, string stateName)
@@ -154,10 +204,32 @@ public class KaosBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (!kickedChairs.ContainsKey(chair) || !kickedChairs[chair])
         {
+            
             kickedChairs[chair] = true; // Mark this chair as kicked
             collisionAnimator.CrossFade(stateName, 0);
-            chair.GetComponent<BoxCollider2D>().enabled = false;
+            if (stateName != "lockeropen")
+            {
+                score++;
+                chair.GetComponent<Collider2D>().enabled = false;
+            }
+            else
+            {
+                isKickingLocker = false;
+                AnimatorStateInfo checkAnimArmario = collisionAnimator.GetCurrentAnimatorStateInfo(0);
+                if (!checkAnimArmario.IsName("lockeropen"))
+                {
+                    score++;
+                }
+            }
+
         }
-       
+
     }
+    IEnumerator NerdolaLevanta(Animator nerdolaAnim)
+    {
+        yield return new WaitForSeconds(0.65f);
+        nerdolaAnim.CrossFade("nerdidle", 0);
+    }
+
+
 }

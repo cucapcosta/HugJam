@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14cd24226959c5d4b8dade590365eb35
+guid: 748cfcec69ea237439731e91de3e2828
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: carteira_Frame_0
+  - name: table_Frame_0
     originalName: 
-    pivot: {x: 0.39285713, y: -0.14634146}
+    pivot: {x: 0.3846154, y: -0.20338982}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 42
-      height: 41
-    spriteID: 73b721474c496124595941b8c70b9f49
+      width: 52
+      height: 59
+    spriteID: 02d1a02817e142845b126360313d543b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,18 +141,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: carteira_Frame_1
+  - name: table_Frame_1
     originalName: 
-    pivot: {x: 0.54444444, y: -0.1875}
+    pivot: {x: 0.55932206, y: -0.01923077}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 54
+      x: 64
       y: 4
-      width: 45
-      height: 32
-    spriteID: e23ab76cccab5634da7cbc8cb0c68817
+      width: 59
+      height: 52
+    spriteID: 172c7d72ef906b245800d6c5272f97b8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,63 +160,34 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 54, y: 4}
-  - name: carteira_Frame_2
-    originalName: 
-    pivot: {x: 0.59302324, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 54
-      y: 44
-      width: 43
-      height: 32
-    spriteID: 143364b9809a90546bca9c12eea8ffb8
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 54, y: 44}
+    uvTransform: {x: 64, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1832828673
-    name: carteira
+    guid: -617524026
+    name: table
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: carteira_Frame_0
+    - name: table_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 10
-        y: 6
-        width: 42
-        height: 41
-      spriteId: 73b721474c496124595941b8c70b9f49
-    - name: carteira_Frame_1
+        x: 13
+        y: 12
+        width: 52
+        height: 59
+      spriteId: 02d1a02817e142845b126360313d543b
+    - name: table_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 2
-        y: 6
-        width: 45
-        height: 32
-      spriteId: e23ab76cccab5634da7cbc8cb0c68817
-    - name: carteira_Frame_2
-      frameIndex: 2
-      additiveSortOrder: 0
-      cellRect:
-        x: 1
-        y: 0
-        width: 43
-        height: 32
-      spriteId: 143364b9809a90546bca9c12eea8ffb8
+        x: 0
+        y: 1
+        width: 59
+        height: 52
+      spriteId: 172c7d72ef906b245800d6c5272f97b8
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -235,4 +206,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 53, y: 48}
+  canvasSize: {x: 66, y: 72}

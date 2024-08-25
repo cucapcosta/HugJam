@@ -7,8 +7,10 @@ public class JanelaScript : MonoBehaviour
     public Animator animator;
     public GameObject janelaQuebrando;
     Animator shatterAnimator;
+    GameObject player;
     void Start()
     {
+        player = GameObject.Find("Kaos");
         animator = GetComponent<Animator>();
     }
     void Update()
@@ -29,6 +31,7 @@ public class JanelaScript : MonoBehaviour
             {
                 animator.CrossFade("shattered2", 0);
             }
+            player.GetComponent<KaosBehaviour>().score += 1;
             GameObject shatterInstance = Instantiate(janelaQuebrando, transform.position, Quaternion.identity);
             shatterAnimator = shatterInstance.GetComponent<Animator>();
             shatterAnimator.CrossFade("shatter_Clip", 0);

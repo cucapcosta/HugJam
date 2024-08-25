@@ -10,6 +10,8 @@ TagManager:
   - Chair
   - Tiro
   - Carteira
+  - MesaProf
+  - Armario
   layers:
   - Default
   - TransparentFX
