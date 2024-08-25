@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JanelaScript : MonoBehaviour
 {
+    public AudioClip breakSound;
+    public AudioSource audioSource;
     public Animator animator;
     public GameObject janelaQuebrando;
     Animator shatterAnimator;
@@ -32,6 +34,7 @@ public class JanelaScript : MonoBehaviour
                 animator.CrossFade("shattered2", 0);
             }
             player.GetComponent<KaosBehaviour>().score += 1;
+            audioSource.PlayOneShot(breakSound);
             GameObject shatterInstance = Instantiate(janelaQuebrando, transform.position, Quaternion.identity);
             shatterAnimator = shatterInstance.GetComponent<Animator>();
             shatterAnimator.CrossFade("shatter_Clip", 0);

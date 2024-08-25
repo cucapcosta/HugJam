@@ -3,7 +3,15 @@ guid: cc6741f39f82b114ea0d4e145b140f4d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - shootSound: {fileID: 8300000, guid: f5fba5b32d5955e478274c7997f7592c, type: 3}
+  - audioSource: {instanceID: 0}
+  - rb: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - marble: {instanceID: 0}
+  - nerdola: {instanceID: 0}
+  - geek: {instanceID: 0}
+  - ponteiroImagem: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

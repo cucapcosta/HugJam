@@ -10,6 +10,11 @@ using UnityEngine.Rendering;
 
 public class KaosBehaviour : MonoBehaviour
 {
+    public AudioClip shootSound;
+    public AudioClip chairSound;
+    public AudioClip lockerSound;
+    
+    public AudioSource audioSource;
     public Rigidbody2D rb;
     public float speed;
     public float speedKickMultiplier;
@@ -120,6 +125,7 @@ public class KaosBehaviour : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().flipX = true;
             }
             StartCoroutine(WaitToShoot(0.2f, transform.position, worldMousePosition, arcHeight));
+            audioSource.PlayOneShot(shootSound);
         }
     }
     void Chutar()
@@ -210,6 +216,7 @@ public class KaosBehaviour : MonoBehaviour
             if (stateName != "lockeropen")
             {
                 score++;
+                audioSource.PlayOneShot(chairSound);
                 chair.GetComponent<Collider2D>().enabled = false;
             }
             else
@@ -218,6 +225,7 @@ public class KaosBehaviour : MonoBehaviour
                 AnimatorStateInfo checkAnimArmario = collisionAnimator.GetCurrentAnimatorStateInfo(0);
                 if (!checkAnimArmario.IsName("lockeropen"))
                 {
+                    audioSource.PlayOneShot(lockerSound);
                     score++;
                 }
             }

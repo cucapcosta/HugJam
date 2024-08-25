@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCBase : MonoBehaviour
 {
+    public AudioClip goodSound;
+    public AudioSource audioSource;
     public GameObject player;
     public GameObject desire;
     public GameObject reward;
