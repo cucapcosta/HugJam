@@ -197,13 +197,13 @@ public class KaosBehaviour : MonoBehaviour
                 case "Armario":
                     if (!isKickingLocker)
                     {
-                        lockersKicked++;
+                        // lockersKicked++;
                         isKickingLocker = true;
                     }
                     GameObject armario = collision.gameObject;
                     Animator armarioAnimator = armario.GetComponent<Animator>();
                     StartCoroutine(WairForKick(armario, armarioAnimator, "lockeropen"));
-                    if (lockersKicked == nerdolaInstantiateTime && !hasInstantiatedNerdola)
+                    if (lockersKicked >= nerdolaInstantiateTime && !hasInstantiatedNerdola)
                     {
                         GameObject nerdolaInstanciado = Instantiate(nerdola, new UnityEngine.Vector2(transform.position.x, transform.position.y - 0.1f), UnityEngine.Quaternion.identity);
                         hasInstantiatedNerdola = true;
@@ -211,7 +211,7 @@ public class KaosBehaviour : MonoBehaviour
                         animNerdola.CrossFade("nerdfall", 0);
                         StartCoroutine(NerdolaLevanta(animNerdola));
                     }
-                    else if (lockersKicked == geekInstantiateTime && !hasInstantiatedGeek)
+                    else if (lockersKicked >= geekInstantiateTime && !hasInstantiatedGeek)
                     {
                         GameObject geekInstanciado = Instantiate(geek, new UnityEngine.Vector2(transform.position.x, transform.position.y - 0.1f), UnityEngine.Quaternion.identity);
                         hasInstantiatedGeek = true;
@@ -247,6 +247,7 @@ public class KaosBehaviour : MonoBehaviour
                 {
                     audioSource.PlayOneShot(lockerSound);
                     score++;
+                    lockersKicked++;
                 }
             }
 
