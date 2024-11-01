@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class TeacherController : MonoBehaviour
 {
+    public AudioClip mugSound;
+    public AudioSource audioSource;
     public Animator animator;
     public float speed;
     public GameObject player;
@@ -52,6 +54,7 @@ public class TeacherController : MonoBehaviour
                 if (stateInfo.IsName("teacheridle"))
                 {
                     animator.CrossFade("teachershock", 0); // animação antes de chase
+                    audioSource.PlayOneShot(mugSound);
                 }
                 if (stateInfo.IsName("teachershock") && stateInfo.normalizedTime >= 1) // apenas comeca o chase apos tocar animação
                 {

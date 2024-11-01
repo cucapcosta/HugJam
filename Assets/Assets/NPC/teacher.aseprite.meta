@@ -123,13 +123,13 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: teacher_Frame_0
     originalName: 
-    pivot: {x: 0.4130435, y: 0.013513514}
+    pivot: {x: 0.4130435, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 128
-      y: 86
+      x: 4
+      y: 88
       width: 46
       height: 74
     spriteID: 3927178c7a4eddb49822733d67229c0d
@@ -140,16 +140,16 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 128, y: 86}
+    uvTransform: {x: 4, y: 88}
   - name: teacher_Frame_1
     originalName: 
-    pivot: {x: 0.4130435, y: 0.01369863}
+    pivot: {x: 0.4130435, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 128
-      y: 168
+      x: 4
+      y: 170
       width: 46
       height: 73
     spriteID: 0f620a5406d86ac4e8d3183b92e90e8e
@@ -160,16 +160,16 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 128, y: 168}
+    uvTransform: {x: 4, y: 170}
   - name: teacher_Frame_2
     originalName: 
-    pivot: {x: 0.38, y: 0.013513514}
+    pivot: {x: 0.38, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 128
-      y: 4
+      x: 62
+      y: 167
       width: 50
       height: 74
     spriteID: d9aec9626f220994f88f75daaf772812
@@ -180,16 +180,16 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 128, y: 4}
+    uvTransform: {x: 62, y: 167}
   - name: teacher_Frame_3
     originalName: 
-    pivot: {x: 0.38, y: 0.013157895}
+    pivot: {x: 0.38, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 66
-      y: 174
+      x: 4
+      y: 4
       width: 50
       height: 76
     spriteID: da019a9ba511b6f449f68ae85c00b49d
@@ -200,18 +200,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 66, y: 174}
+    uvTransform: {x: 4, y: 4}
   - name: teacher_Frame_4
     originalName: 
-    pivot: {x: 0.35185185, y: 0.064935066}
+    pivot: {x: 0.37254903, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 66
-      y: 4
-      width: 54
-      height: 77
+      x: 62
+      y: 86
+      width: 51
+      height: 73
     spriteID: 3b697ad4b832bea4884a9f0eed675de6
     spriteBone: []
     spriteOutline: []
@@ -220,18 +220,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 66, y: 4}
+    uvTransform: {x: 62, y: 86}
   - name: teacher_Frame_5
     originalName: 
-    pivot: {x: 0.35185185, y: 0.1097561}
+    pivot: {x: 0.37254903, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 62
       y: 4
-      width: 54
-      height: 82
+      width: 51
+      height: 74
     spriteID: a664db53911e86948a758ab3cfe91d8b
     spriteBone: []
     spriteOutline: []
@@ -240,15 +240,15 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 62, y: 4}
   - name: teacher_Frame_6
     originalName: 
-    pivot: {x: 0.42857143, y: 0}
+    pivot: {x: 0.42857143, y: -0.014285713}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 186
+      x: 121
       y: 4
       width: 42
       height: 70
@@ -260,16 +260,16 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 186, y: 4}
+    uvTransform: {x: 121, y: 4}
   - name: teacher_Frame_7
     originalName: 
-    pivot: {x: 0.54545456, y: 0.013888888}
+    pivot: {x: 0.54545456, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 186
-      y: 166
+      x: 171
+      y: 85
       width: 33
       height: 72
     spriteID: a1f3de101e44ba941b05d1a63e0c5179
@@ -280,15 +280,15 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 186, y: 166}
+    uvTransform: {x: 171, y: 85}
   - name: teacher_Frame_8
     originalName: 
-    pivot: {x: 0.5277778, y: 0.013157895}
+    pivot: {x: 0.5277778, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 186
+      x: 121
       y: 82
       width: 36
       height: 76
@@ -300,18 +300,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 186, y: 82}
+    uvTransform: {x: 121, y: 82}
   - name: teacher_Frame_9
     originalName: 
-    pivot: {x: 0.35185185, y: 0.064935066}
+    pivot: {x: 0.5277778, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 66
-      y: 89
-      width: 54
-      height: 77
+      x: 171
+      y: 4
+      width: 36
+      height: 73
     spriteID: 41ed90723b0992b4caf7b5548db3a681
     spriteBone: []
     spriteOutline: []
@@ -320,18 +320,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 66, y: 89}
+    uvTransform: {x: 171, y: 4}
   - name: teacher_Frame_10
     originalName: 
-    pivot: {x: 0.35185185, y: 0.1097561}
+    pivot: {x: 0.5277778, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 94
-      width: 54
-      height: 82
+      x: 121
+      y: 166
+      width: 36
+      height: 74
     spriteID: 2759309fa102f3a49baaf9b3978a66d1
     spriteBone: []
     spriteOutline: []
@@ -340,7 +340,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 94}
+    uvTransform: {x: 121, y: 166}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -355,7 +355,7 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 13
-        y: -1
+        y: 0
         width: 46
         height: 74
       spriteId: 3927178c7a4eddb49822733d67229c0d
@@ -364,7 +364,7 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 13
-        y: -1
+        y: 0
         width: 46
         height: 73
       spriteId: 0f620a5406d86ac4e8d3183b92e90e8e
@@ -373,7 +373,7 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 13
-        y: -1
+        y: 0
         width: 50
         height: 74
       spriteId: d9aec9626f220994f88f75daaf772812
@@ -382,7 +382,7 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 13
-        y: -1
+        y: 0
         width: 50
         height: 76
       spriteId: da019a9ba511b6f449f68ae85c00b49d
@@ -391,25 +391,25 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 13
-        y: -5
-        width: 54
-        height: 77
+        y: 0
+        width: 51
+        height: 73
       spriteId: 3b697ad4b832bea4884a9f0eed675de6
     - name: teacher_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
         x: 13
-        y: -9
-        width: 54
-        height: 82
+        y: 0
+        width: 51
+        height: 74
       spriteId: a664db53911e86948a758ab3cfe91d8b
     - name: teacher_Frame_6
       frameIndex: 6
       additiveSortOrder: 0
       cellRect:
         x: 14
-        y: 0
+        y: 1
         width: 42
         height: 70
       spriteId: 3701fbf4b79f70a448b3b25d392af8ee
@@ -418,7 +418,7 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 14
-        y: -1
+        y: 0
         width: 33
         height: 72
       spriteId: a1f3de101e44ba941b05d1a63e0c5179
@@ -427,7 +427,7 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 13
-        y: -1
+        y: 0
         width: 36
         height: 76
       spriteId: 7b00e72105064f842b7ddc1d881b25bb
@@ -436,18 +436,18 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 13
-        y: -5
-        width: 54
-        height: 77
+        y: 0
+        width: 36
+        height: 73
       spriteId: 41ed90723b0992b4caf7b5548db3a681
     - name: teacher_Frame_10
       frameIndex: 10
       additiveSortOrder: 0
       cellRect:
         x: 13
-        y: -9
-        width: 54
-        height: 82
+        y: 0
+        width: 36
+        height: 74
       spriteId: 2759309fa102f3a49baaf9b3978a66d1
     linkedCells: []
     parentIndex: -1
@@ -467,4 +467,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 82}
+  canvasSize: {x: 64, y: 83}
