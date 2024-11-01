@@ -29,18 +29,36 @@ public class TeacherController : MonoBehaviour
         }else{
             GetComponent<SpriteRenderer>().flipX = true;
         }
+        if (player.GetComponent<KaosBehaviour>().score == 0) {return;}
         float teleportTime = 0.2f * (39/player.GetComponent<KaosBehaviour>().score);
         if(player.GetComponent<KaosBehaviour>().score >=15){
-            isChase = true;
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.IsName("teacheridle"))
+            {
+                isChase = true;
+                animator.CrossFade("teacherwalk", 0);
+            }
         }
         if(teleportTime < 3f){
             teleportTime = 3f;
         }
         print(teleportTime);
         if(player.GetComponent<KaosBehaviour>().currentRoom == currentRoom){
-            isChase = true;  
-            animator.CrossFade("teacherwalk", 0);
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if (isChase)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            } else {
+                if (stateInfo.IsName("teacheridle"))
+                {
+                    animator.CrossFade("teachershock", 0); // animação antes de chase
+                }
+                if (stateInfo.IsName("teachershock") && stateInfo.normalizedTime >= 1) // apenas comeca o chase apos tocar animação
+                {
+                    isChase = true;  
+                    animator.CrossFade("teacherwalk", 0);
+                }
+            }
         } else{
             if(!isTP && isChase){
                 StartCoroutine(Teleport(teleportTime));

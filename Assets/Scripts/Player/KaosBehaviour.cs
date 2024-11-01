@@ -197,7 +197,6 @@ public class KaosBehaviour : MonoBehaviour
                 case "Armario":
                     if (!isKickingLocker)
                     {
-                        // lockersKicked++;
                         isKickingLocker = true;
                     }
                     GameObject armario = collision.gameObject;
@@ -266,7 +265,7 @@ public class KaosBehaviour : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Prof")
+        if (collision.gameObject.tag == "Prof" && score > 0)
         {
             PlayerPrefs.SetFloat("score", gameObject.GetComponent<KaosBehaviour>().score);
             PlayerPrefs.SetInt("time", (int)gameObject.GetComponent<KaosBehaviour>().timespent);
