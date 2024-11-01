@@ -65,7 +65,7 @@ public class KaosBehaviour : MonoBehaviour
         if (isAttacking)
         {
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.IsName("kick") && stateInfo.normalizedTime >= 1)
+            if (stateInfo.IsName("kick") && stateInfo.normalizedTime >= 1 || !stateInfo.IsName("kick") && !stateInfo.IsName("shoot"))
             {
                 isAttacking = false;
                 isKicking = false;
@@ -87,6 +87,8 @@ public class KaosBehaviour : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1") && itemList.Contains("estilingue"))
         {
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if(!stateInfo.IsName("kick") && !stateInfo.IsName("shoot"))
             Atirar();
         }
         ponteiroImagem.transform.rotation = UnityEngine.Quaternion.Euler(0, 0, -360 * (timespent / timer));
