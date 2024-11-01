@@ -9,6 +9,6 @@ public class Inicio : MonoBehaviour
         Application.Quit();
     }
     public void Play(){
-        SceneManager.LoadScene("KaosAgenteDoCaos");
+        SceneManager.LoadScene("SceneGuia");
     }
 }
