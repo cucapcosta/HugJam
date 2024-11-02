@@ -126,7 +126,9 @@ public class TeacherController : MonoBehaviour
         
         isTP = false;
     }
+    public void stunTeacher(){
     
+    }
 }
 [Serializable]
 public class TPINFO
