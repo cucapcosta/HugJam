@@ -48,6 +48,7 @@ public class NPCBase : MonoBehaviour
                         if (rewardName == "SAIR")
                         {
                             audioSource.PlayOneShot(goodSound);
+                            player.GetComponent<KaosBehaviour>().score += 15;
                             PlayerPrefs.SetFloat("score", player.GetComponent<KaosBehaviour>().score);
                             PlayerPrefs.SetInt("time", (int)player.GetComponent<KaosBehaviour>().timespent);
                             PlayerPrefs.Save();

@@ -7,6 +7,9 @@ using UnityEngine;
 public class TeacherController : MonoBehaviour
 {
     public AudioClip mugSound;
+    public AudioClip hitSound;
+    public AudioClip hit2Sound;
+    public AudioClip hit3Sound;
     public AudioSource audioSource;
     public Animator animator;
     public float speed;
@@ -126,8 +129,27 @@ public class TeacherController : MonoBehaviour
         
         isTP = false;
     }
-    public void stunTeacher(){
-    
+    public void stunTeacher()
+    {StartCoroutine(StunTeacherCoroutine());}
+    private IEnumerator StunTeacherCoroutine()
+    {
+        animator.CrossFade("teacherhit", 0);
+        int randomIndex = UnityEngine.Random.Range(0, 3);
+        switch (randomIndex)
+        {
+            case 0:
+                audioSource.PlayOneShot(hitSound);
+                break;
+            case 1:
+                audioSource.PlayOneShot(hit2Sound);
+                break;
+            case 2:
+                audioSource.PlayOneShot(hit3Sound);
+                break;
+        }
+        yield return new WaitForSeconds(0.5f);
+        isChase = true;
+        animator.CrossFade("teacherwalk", 0);
     }
 }
 [Serializable]

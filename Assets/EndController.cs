@@ -23,9 +23,9 @@ public class EndController : MonoBehaviour
         timeText.text = timeUsed.ToString();
         if(scorevalue > 100){
             scoreLetter[0].SetActive(true);
-        }else if(100>scorevalue && scorevalue>=75){
+        }else if(110>scorevalue && scorevalue>=80){
             scoreLetter[1].SetActive(true);
-        }else if(75>scorevalue && scorevalue>=50){
+        }else if(80>scorevalue && scorevalue>=50){
             scoreLetter[2].SetActive(true);
         }else if(50>scorevalue && scorevalue>=20){
             scoreLetter[3].SetActive(true);

@@ -6770,6 +6770,10 @@ PrefabInstance:
       value: Prof
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 9437e9a1ea80faa4bb22a90edd3b2fa8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 9437e9a1ea80faa4bb22a90edd3b2fa8, type: 3}
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
@@ -6853,8 +6857,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a4e86ab9ec3d047996ade29408d274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mugSound: {fileID: 0}
-  audioSource: {fileID: 0}
+  mugSound: {fileID: 8300000, guid: 4c952b384a14911489f08277f24e6fcc, type: 3}
+  hitSound: {fileID: 8300000, guid: ae8d628d90728e34ba7ff6dc49657c91, type: 3}
+  hit2Sound: {fileID: 8300000, guid: 51c34d20d1ba59b47ad325c48f7a06bf, type: 3}
+  hit3Sound: {fileID: 8300000, guid: ac1647ba1ce26974abbd8c69ba7ba91b, type: 3}
+  audioSource: {fileID: 1291431605}
   animator: {fileID: 0}
   speed: 0.9
   maxScore: 90
