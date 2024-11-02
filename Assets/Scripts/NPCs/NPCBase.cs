@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class NPCBase : MonoBehaviour
     public List<string> playerItemList;
     public bool isTrading;
     public bool hasDesire;
-
+    private string[] floorList = {"ball", "bag"};
 
     void Start()
     {
@@ -51,7 +52,7 @@ public class NPCBase : MonoBehaviour
                             PlayerPrefs.SetInt("time", (int)player.GetComponent<KaosBehaviour>().timespent);
                             PlayerPrefs.Save();
                             SceneManager.LoadScene("FIM");
-                        }else if(rewardName =="walkietalkie"){
+                        }else if(rewardName =="15up"){
                             player.GetComponent<KaosBehaviour>().score += 15;
                             playerItemList.Add(rewardName);
                             interactionPlace = new UnityEngine.Vector2(player.transform.position.x, player.transform.position.y + .5f);
@@ -86,6 +87,7 @@ public class NPCBase : MonoBehaviour
                     hasDesire = false;
                     StartCoroutine(DestroyReward(rewardPopup));
                     audioSource.PlayOneShot(goodSound);
+
                 }
 
             }
@@ -108,5 +110,12 @@ public class NPCBase : MonoBehaviour
         print("Tenta destruir popup");
         yield return new WaitForSeconds(2);
         Destroy(rewardPopup);
+        e.SetActive(false);
+        foreach (string item in floorList)
+        {
+            if(item == rewardName){
+                Destroy (gameObject);
+            }
+        }
     }
 }
