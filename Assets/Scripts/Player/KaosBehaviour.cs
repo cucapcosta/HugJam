@@ -150,18 +150,32 @@ public class KaosBehaviour : MonoBehaviour
         }
     }
 
-    UnityEngine.Vector2 CalculateLaunchVelocity(UnityEngine.Vector2 startPosition, UnityEngine.Vector2 targetPosition, float arcHeight)
+UnityEngine.Vector2 CalculateLaunchVelocity(UnityEngine.Vector2 startPosition, UnityEngine.Vector2 targetPosition, float arcHeight)
+{
+    float gravity = Mathf.Abs(Physics2D.gravity.y);
+    float displacementX = targetPosition.x - startPosition.x;
+    float displacementY = targetPosition.y - startPosition.y;
+
+    float adjustedArcHeight = Mathf.Max(arcHeight, Mathf.Abs(displacementY) / 2);
+
+    float time = Mathf.Sqrt(2 * adjustedArcHeight / gravity) + Mathf.Sqrt(2 * Mathf.Abs(displacementY - adjustedArcHeight) / gravity);
+
+    // Limitar o tempo mínimo para evitar valores muito pequenos em lançamentos horizontais
+    if (time < 0.5f) time = 0.5f;
+
+    float velocityX = displacementX / time;
+    float velocityY = (displacementY + (0.5f * gravity * Mathf.Pow(time, 2))) / time;
+
+    // Limitar a velocidade horizontal máxima
+    float maxHorizontalSpeed = 10f; // Ajuste este valor conforme necessário
+    if (Mathf.Abs(velocityX) > maxHorizontalSpeed)
     {
-
-        float gravity = Physics2D.gravity.y * -1;
-        float displacementX = targetPosition.x - startPosition.x;
-        float displacementY = Mathf.Abs(targetPosition.y - startPosition.y);
-        print(-2 * arcHeight / gravity);
-        float time = Mathf.Sqrt(-2 * arcHeight / gravity) + Mathf.Sqrt(2 * (displacementY - arcHeight) / gravity);
-        UnityEngine.Vector2 velocity = new UnityEngine.Vector2(displacementX / time, (displacementY / time) + (0.5f * gravity * time));
-        return velocity * launchSpeed;
-
+        velocityX = maxHorizontalSpeed * Mathf.Sign(velocityX);
     }
+
+    return new UnityEngine.Vector2(velocityX, velocityY) * launchSpeed;
+}
+
     IEnumerator WaitToShoot(float time, UnityEngine.Vector2 startPosition, UnityEngine.Vector2 targetPosition, float arcHeight)
     {
         yield return new WaitForSeconds(time);
