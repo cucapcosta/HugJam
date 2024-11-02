@@ -10,19 +10,30 @@ public class TeacherController : MonoBehaviour
     public AudioSource audioSource;
     public Animator animator;
     public float speed;
+    public float maxScore = 90f;
+    public float minSpeed = 3f;
+    public float maxSpeed = 9f;
     public GameObject player;
     public string currentRoom;
     public Rigidbody2D rb;
     public bool isChase;
     public bool isTP;
     public List<TPINFO> tpPlaceList = new List<TPINFO>();
-    [SerializeField]public Dictionary<string, UnityEngine.Vector2> tpPlaces;
+    [SerializeField] public Dictionary<string, UnityEngine.Vector2> tpPlaces;
+
+    private float acceleration = 1.0f;
+    private float targetAcceleration;
+    private float maxAcceleration = 1.5f;
+    private Vector2 targetDirection;
 
     void Start()
     {
         player = GameObject.Find("Kaos");
         tpPlaces = tpPlaceList.ToDictionary(x => x.room, x => x.position);
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        rb.drag = 2f;  // Linear drag for steady movement
+        rb.angularDrag = 5f; // Higher angular drag for smoother turns
     }
 
     void Update(){
@@ -49,7 +60,23 @@ public class TeacherController : MonoBehaviour
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
             if (isChase)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                // Adjust speed based on score, with faster pursuit at higher scores
+                speed = Mathf.Clamp(minSpeed + (maxSpeed - minSpeed) * (player.GetComponent<KaosBehaviour>().score / maxScore), minSpeed, maxSpeed);
+
+                // Calculate target direction and smoothly adjust acceleration for a relentless chase
+                targetDirection = (player.transform.position - transform.position).normalized;
+                targetAcceleration = Mathf.Lerp(acceleration, maxAcceleration, Time.deltaTime * 0.5f); // Smooth transition for acceleration
+
+                rb.AddForce(targetDirection * speed * targetAcceleration * Time.deltaTime, ForceMode2D.Force);
+
+                // Update acceleration for damping effect
+                acceleration = Mathf.Lerp(acceleration, targetAcceleration, Time.deltaTime * 0.5f);
+
+                // If close to player, maintain high speed for consistent chase
+                if (Vector2.Distance(transform.position, player.transform.position) < 0.5f)
+                {
+                    acceleration = 1.2f; // Slight increase to prevent slowing too much
+                }
             } else {
                 if (stateInfo.IsName("teacheridle"))
                 {
@@ -72,7 +99,7 @@ public class TeacherController : MonoBehaviour
         print("Teleporting");
         isTP = true;
         yield return new WaitForSeconds(time);
-        
+
         if(player.GetComponent<KaosBehaviour>().currentRoom != "mainHall"){
             transform.position = tpPlaces[player.GetComponent<KaosBehaviour>().currentRoom];
             currentRoom = player.GetComponent<KaosBehaviour>().currentRoom;
@@ -102,7 +129,8 @@ public class TeacherController : MonoBehaviour
     
 }
 [Serializable]
-public class TPINFO {
+public class TPINFO
+{
     public string room;
     public UnityEngine.Vector2 position;
 }
