@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6031867006901155219}
   - component: {fileID: 7804216655574876322}
-  - component: {fileID: 6417592461691435400}
   - component: {fileID: 948418442814655451}
   m_Layer: 0
   m_Name: BallGet
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_Sprite: {fileID: 8248506585083586258, guid: 2b2518cc6e59e93488ac2be251b2f0db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,18 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6417592461691435400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5139078911781738825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61f653c2c181f3548863d6a9dd386987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &948418442814655451
 Animator:
   serializedVersion: 5

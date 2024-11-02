@@ -107,15 +107,15 @@ public class NPCBase : MonoBehaviour
 
     IEnumerator DestroyReward(GameObject rewardPopup)
     {
+        foreach (string item in floorList)
+        {
+            if(item == rewardName){
+                transform.position = new Vector2(100, 1000);
+            }
+        }
         print("Tenta destruir popup");
         yield return new WaitForSeconds(2);
         Destroy(rewardPopup);
         e.SetActive(false);
-        foreach (string item in floorList)
-        {
-            if(item == rewardName){
-                Destroy (gameObject);
-            }
-        }
     }
 }

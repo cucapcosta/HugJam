@@ -21,13 +21,13 @@ public class EndController : MonoBehaviour
         timeUsed = PlayerPrefs.GetInt("time");
         scoreText.text = scorevalue.ToString();
         timeText.text = timeUsed.ToString();
-        if(scorevalue > 70){
+        if(scorevalue > 100){
             scoreLetter[0].SetActive(true);
-        }else if(70>scorevalue && scorevalue>=60){
+        }else if(100>scorevalue && scorevalue>=75){
             scoreLetter[1].SetActive(true);
-        }else if(60>scorevalue && scorevalue>=40){
+        }else if(75>scorevalue && scorevalue>=50){
             scoreLetter[2].SetActive(true);
-        }else if(40>scorevalue && scorevalue>=20){
+        }else if(50>scorevalue && scorevalue>=20){
             scoreLetter[3].SetActive(true);
         }else{
             scoreLetter[4].SetActive(true);
